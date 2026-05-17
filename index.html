@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+    <meta name="theme-color" content="#0a0612" />
+    <meta name="description" content="A cinematic birthday memory experience" />
+    <title>Happy Birthday — A Cinematic Tribute</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- Loading screen -->
+    <div class="loader" id="loader" data-testid="loading-screen">
+      <div class="loader-inner">
+        <div class="loader-ring"></div>
+        <div class="loader-text">Loading our memories…</div>
+      </div>
+    </div>
+
+    <!-- Custom cursor -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- Ambient background layers -->
+    <div class="ambient">
+      <div class="ambient-orb orb-purple"></div>
+      <div class="ambient-orb orb-pink"></div>
+      <div class="ambient-orb orb-blue"></div>
+      <div class="grain"></div>
+    </div>
+
+    <!-- Floating particles canvas -->
+    <canvas id="particles" class="particles-canvas" aria-hidden="true"></canvas>
+
+    <!-- Scroll progress -->
+    <div class="progress-bar" id="progressBar" data-testid="scroll-progress"></div>
+
+    <!-- Floating nav -->
+    <nav class="floating-nav" data-testid="floating-nav">
+      <a href="#hero" class="nav-pill" data-testid="nav-hero">Preview</a>
+      <a href="#message" class="nav-pill" data-testid="nav-message">Message</a>
+      <a href="#gallery" class="nav-pill" data-testid="nav-gallery">Gallery</a>
+      <a href="#timeline" class="nav-pill" data-testid="nav-timeline">Timeline</a>
+      <a href="#quotes" class="nav-pill" data-testid="nav-quotes">Quotes</a>
+      <a href="#surprise" class="nav-pill" data-testid="nav-surprise">Surprise</a>
+      <a href="#ending" class="nav-pill" data-testid="nav-ending">Ending</a>
+    </nav>
+
+    <!-- Music toggle -->
+    <button
+      class="music-toggle"
+      id="musicToggle"
+      data-testid="music-toggle"
+      aria-label="Toggle ambient music"
+    >
+      <span class="music-icon" id="musicIcon">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18V5l12-2v13" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="18" cy="16" r="3" />
+        </svg>
+      </span>
+      <span class="music-label" id="musicLabel">Play music</span>
+      <span class="music-eq" id="musicEq" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </span>
+    </button>
+
+    <!-- ============== HERO ============== -->
+    <section class="section hero" id="hero" data-testid="section-hero">
+      <div class="hero-bg-text" aria-hidden="true">BIRTHDAY</div>
+
+      <div class="hero-content">
+        <div class="hero-eyebrow reveal">
+          <span class="eyebrow-line"></span>
+          <span>A Cinematic Memory · 2022-Till Date</span>
+          <span class="eyebrow-line"></span>
+        </div>
+
+        <h1 class="hero-title" data-testid="hero-title">
+          <span class="title-row">
+            <span class="word" data-text="Happy">Happy</span>
+            <span class="word" data-text="Birthday">Birthday</span>
+          </span>
+          <span class="title-row name-row">
+              <span class="name-script" id="heroName">[Enter Name]</span>
+            <span class="heart">✦</span>
+          </span>
+        </h1>
+
+        <p class="hero-subtitle reveal" data-testid="hero-subtitle">
+          A quiet film for a loud kind of friendship —
+          frozen frames of inside jokes, golden hours, and the very specific magic of having a friend like you.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="#message" data-testid="start-memories-btn">
+            <span>Start the Memories</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a class="btn btn-ghost" href="#gallery" data-testid="open-gallery-btn">
+            <span>Open the Album</span>
+          </a>
+        </div>
+
+        <div class="hero-scroll reveal" aria-hidden="true">
+          <div class="scroll-line"></div>
+          <span>scroll gently</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== EMOTIONAL MESSAGE ============== -->
+    <section class="section message" id="message" data-testid="section-message">
+      <div class="container narrow">
+        <p class="section-eyebrow reveal">CHAPTER 01 · A NOTE FOR A FRIEND</p>
+        <h2 class="section-title reveal">
+          For the person who turns
+          <em>ordinary days</em> into something <em>cinematic</em>.
+        </h2>
+        <div class="letter glass reveal" data-testid="emotional-letter">
+          <p>
+            Some people you meet — others you collect, like a song you don't
+            know you needed on a long, weird, wonderful drive. You're the second kind.
+          </p>
+          <p>
+            Today the calendar lights a candle for you, but the truth is quieter:
+            every random Tuesday since we met has been a small celebration of
+            having you around. The way you laugh too loud at your own jokes.
+            The way you show up, every single time.
+          </p>
+          <p>
+            So here's a film made of moments. Not the polished ones —
+            the <em>real</em> ones. Press play, friend. This one's for you.
+          </p>
+          <div class="signoff">— your favourite chaos</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== GALLERY (cinematic) ============== -->
+    <section class="section gallery" id="gallery" data-testid="section-gallery">
+      <div class="container">
+        <p class="section-eyebrow reveal">CHAPTER 02 · THE MEMORY REEL</p>
+        <h2 class="section-title reveal">
+          A slow film of <em>you</em>.
+        </h2>
+        <p class="section-sub reveal">
+          Each frame holds for a heartbeat, then dissolves into the next —
+          like remembering a year all at once.
+        </p>
+
+        <div class="reel" id="reel" data-testid="memory-reel">
+          <!-- Slides injected by JS -->
+          <div class="reel-stage" id="reelStage"></div>
+
+          <div class="reel-ui">
+            <div class="reel-counter" id="reelCounter" data-testid="reel-counter">01 / 06</div>
+            <div class="reel-caption" id="reelCaption" data-testid="reel-caption"></div>
+            <div class="reel-progress"><div class="reel-progress-fill" id="reelProgressFill"></div></div>
+
+            <div class="reel-controls">
+              <button class="reel-btn" id="reelPrev" data-testid="reel-prev" aria-label="Previous memory">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="reel-btn play" id="reelPlay" data-testid="reel-play" aria-label="Play/Pause">
+                <svg id="reelPlayIcon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+              </button>
+              <button class="reel-btn" id="reelNext" data-testid="reel-next" aria-label="Next memory">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="reel-thumbs" id="reelThumbs" data-testid="reel-thumbs"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== TIMELINE ============== -->
+    <section class="section timeline" id="timeline" data-testid="section-timeline">
+      <div class="container">
+        <p class="section-eyebrow reveal">CHAPTER 03 · A YEAR IN MEMORIES</p>
+        <h2 class="section-title reveal">
+          Five quiet <em>cinematics</em>.
+        </h2>
+
+        <div class="timeline-track" id="timelineTrack">
+          <div class="timeline-line"></div>
+          <!-- Timeline items will be rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== QUOTES ============== -->
+    <section class="section quotes" id="quotes" data-testid="section-quotes">
+      <div class="container">
+        <p class="section-eyebrow reveal">CHAPTER 04 · SMALL TRUTHS</p>
+        <h2 class="section-title reveal">
+          Things I want you to <em>remember</em>.
+        </h2>
+
+        <div class="quote-grid" id="quoteGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============== SURPRISE ============== -->
+    <section class="section surprise" id="surprise" data-testid="section-surprise">
+      <div class="container narrow center">
+        <p class="section-eyebrow reveal">CHAPTER 05 · A SMALL SURPRISE</p>
+        <h2 class="section-title reveal">
+          Press the button. <em>Trust me.</em>
+        </h2>
+        <p class="section-sub reveal">
+          A tiny piece of magic, just for you.
+        </p>
+
+        <button class="btn btn-surprise" id="surpriseBtn" data-testid="surprise-btn">
+          <span class="btn-spark"></span>
+          <span>Release the Confetti</span>
+        </button>
+
+        <div class="surprise-reveal" id="surpriseReveal" data-testid="surprise-message">
+          <p class="reveal-mini">a hidden note</p>
+          <p class="reveal-msg">
+            Out of all the random people the universe could've thrown at me — I'm pretty glad it was you.
+          </p>
+        </div>
+      </div>
+
+      <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
+    </section>
+
+    <!-- ============== ENDING ============== -->
+    <section class="section ending" id="ending" data-testid="section-ending">
+      <div class="ending-bg" aria-hidden="true"></div>
+      <div class="hearts-rain" id="heartsRain" aria-hidden="true"></div>
+      <div class="ending-content">
+        <p class="section-eyebrow reveal">FIN.</p>
+        <h2 class="ending-title" data-testid="ending-title">
+          <span>Here's</span> <span>to</span> <span>You,</span> <span>[Enter Name]</span>
+          <span class="ending-heart">✦</span>
+        </h2>
+        <p class="ending-sub reveal">
+          May this year be loud where it should be loud, soft where it should be soft —
+          and full of the kind of stories we'll be quoting for years.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============== FOOTER ============== -->
+    <footer class="footer" data-testid="footer">
+      <div class="footer-inner">
+        <div class="footer-mark">
+          <span class="footer-glow">✦</span>
+          <span>A cinematic birthday tribute</span>
+        </div>
+        <div class="footer-meta">
+          <span>Made for the most beautiful person ever</span>
+          <span class="dot">·</span>
+          <span>2026</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Hidden audio element -->
+    <audio id="ambientAudio" loop preload="none" data-testid="ambient-audio">
+      <!-- Drop your music file at /music.mp3 to enable -->
+      <source src="/music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
